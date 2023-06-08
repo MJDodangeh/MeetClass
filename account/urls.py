@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import RegisterUser,GetUsers , ChangePermission
+from .views import RegisterUser, ChangePermission
 from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
