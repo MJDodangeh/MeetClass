@@ -7,6 +7,11 @@ class ConfirmMeetSerializer(serializers.ModelSerializer):
         model = ConfirmedMeeting
         fields = "__all__"
 
+class RoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        fields = "__all__"
+
 class Type1Serializer(serializers.ModelSerializer):
     class Meta:
         model = ConfirmedMeeting

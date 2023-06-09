@@ -7,7 +7,8 @@ from rest_framework.views import APIView
 from account.manager_permission import IsManager
 from request_room.models import RequestRoom
 from .models import Room,ConfirmedMeeting
-from .serializer import ConfirmMeetSerializer, Type1Serializer,Type2Serializer,Type3Serializer,Type4Serializer
+from .serializer import ConfirmMeetSerializer, Type1Serializer, Type2Serializer, Type3Serializer, Type4Serializer, \
+    RoomSerializer
 
 
 class ConfirmMeet(APIView):
@@ -83,3 +84,10 @@ class ConfirmMeet(APIView):
     def timesum(self,time):
         h, m, s = str(time).split(":")
         return datetime.timedelta(hours=int(h), minutes=int(m), seconds=int(s))
+
+class RoomList(APIView):
+    permission_classes = [IsManager]
+    def get(self,request):
+        room = Room.objects.all()
+        serializer = RoomSerializer(room,many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
