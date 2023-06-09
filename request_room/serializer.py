@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import RequestRoom
+from .models import RequestRoom,RequestWarning
 
 
 class RequestSerializer(serializers.ModelSerializer):
@@ -30,3 +30,7 @@ class RequestSerializer(serializers.ModelSerializer):
                     return data
                 raise serializers.ValidationError("start time and end time must be entered")
 
+class RequestWarningSerializer(RequestSerializer):
+    class Meta:
+        model = RequestWarning
+        fields = "__all__"

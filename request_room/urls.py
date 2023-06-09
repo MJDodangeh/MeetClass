@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import RequestRoomApi , RequestRoomList
+from .views import RequestRoomApi, RequestRoomList, AcceptWarning
 
 urlpatterns = [
       path('request/', RequestRoomApi.as_view()),
       path('requestlist/', RequestRoomList.as_view()),
+      path('accept/request/<int:reqid>/', AcceptWarning.as_view()),
 ]
