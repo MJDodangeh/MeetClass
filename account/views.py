@@ -23,7 +23,7 @@ class ChangePermission(APIView):
     permission_classes = [IsAdminUser]
     def put(self,request):
         try:
-            user = User.objects.get(id = request.data.get("id"))
+            user = User.objects.get(id = request.data.get("user_id"))
         except:
             return Response({"detail": "any user with this id not found"}, status=status.HTTP_400_BAD_REQUEST)
         user.is_manager = request.data.get("is_manager")

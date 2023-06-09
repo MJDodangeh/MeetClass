@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'account',
-    'request_room'
+    'request_room',
+    'meet'
 ]
 
 MIDDLEWARE = [

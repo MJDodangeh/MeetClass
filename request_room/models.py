@@ -8,3 +8,10 @@ class RequestRoom(models.Model):
     start_time = models.TimeField(null=True)
     end_time = models.TimeField(null=True)
     duration = models.TimeField(null=True)
+    Type_Choices = [
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4')
+    ]
+    type = models.IntegerField(choices=Type_Choices,default=2)
